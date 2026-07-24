@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Νήματα · 1984 παρατηρητήριο</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Commissioner:wght@400;500;600;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/1984.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <div class="brand">
+      <a href="/" class="brand__logo" style="text-decoration:none;color:inherit">1984</a>
+      <span class="brand__tag">παρατηρητήριο</span>
+      <span class="brand__morse" aria-hidden="true">·–·· –·– ·––·</span>
+    </div>
+    <nav class="site-nav" aria-label="Ενότητες">
+      <a href="/" class="nav-link ">ΡΟΗ</a>
+      <a href="/threads" class="nav-link nav-link--active">ΝΗΜΑΤΑ</a>
+      <a href="/memoryhole" class="nav-link ">Η ΤΡΥΠΑ ΤΗΣ ΜΝΗΜΗΣ</a>
+      <a href="/exposure" class="nav-link ">ΠΡΟΒΟΛΗ</a>
+      <a href="/timeline" class="nav-link ">ΧΡΟΝΟΛΟΓΙΟ</a>
+      <a href="/words" class="nav-link ">ΛΕΞΕΙΣ</a>
+      <a href="/days" class="nav-link ">ΑΡΧΕΙΟ</a>
+      <a href="/sources" class="nav-link ">ΠΗΓΕΣ</a>
+    </nav>
+  </div>
+</header>
+<main class="page">
+
+<h1 class="page-title">Νήματα</h1>
+<p class="page-sub">ιστορίες που διατρέχουν τις ημέρες — συστάδες τίτλων δεμένες σε νήματα με όρους-άγκυρες<br>
+<span style="font-size:12px">κλικ σε επικεφαλίδα στήλης για ταξινόμηση · η αναζήτηση φιλτράρει τους τίτλους</span></p>
+
+<div class="stat-strip" style="margin-bottom:32px">
+  <div><div class="stat__num">0</div><div class="stat__label">ιστορίες πολλών ημερών</div></div>
+  <div><div class="stat__num">0</div><div class="stat__label">στήλες &amp; δελτία (ένα μέσο)</div></div>
+</div>
+
+<div style="display:flex;gap:18px;align-items:center;margin-bottom:20px;flex-wrap:wrap">
+  <nav class="badges" aria-label="είδος">
+    <a href="/threads" class="badge" style="font-weight:700;text-decoration:underline">ΙΣΤΟΡΙΕΣ</a>
+    <a href="/threads?k=series" class="badge" >ΣΤΗΛΕΣ &amp; ΔΕΛΤΙΑ</a>
+  </nav>
+  <input id="thread-search" type="search" placeholder="αναζήτηση στα νήματα…"
+         style="flex:1;min-width:220px;max-width:420px;padding:7px 12px;font:inherit;background:transparent;border:1px solid var(--rule,#888);color:inherit">
+</div>
+
+<table class="data-table" id="threads-table">
+  <thead><tr>
+    <th>νημα</th><th class="num">πρωτη</th><th class="num">τελευταια</th>
+    <th class="num">ημερες</th><th class="num">αρθρα</th><th class="num m-hide">μεσα</th>
+    <th class="m-hide">δραστηριοτητα</th>
+  </tr></thead>
+  <tbody>
+    
+  </tbody>
+</table>
+
+<style>
+  .spark { display:flex; align-items:flex-end; gap:1px; height:18px; width:120px; }
+  .spark i { flex:1; background:currentColor; opacity:.75; min-height:1px; }
+  #threads-table tr[hidden] { display:none; }
+</style>
+<script>
+// client-side title search — the set is bounded, no server round trip
+(function () {
+  var input = document.getElementById("thread-search");
+  var rows = Array.prototype.slice.call(
+    document.querySelectorAll("#threads-table tbody tr"));
+  var fold = function (t) {
+    return t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "")
+            .replace(/ς/g, "σ");
+  };
+  input.addEventListener("input", function () {
+    var q = fold(input.value.trim());
+    rows.forEach(function (r) {
+      r.hidden = q !== "" && fold(r.cells[0].innerText).indexOf(q) === -1;
+    });
+  });
+})();
+</script>
+
+</main>
+<style>
+  table.data-table thead th { cursor:pointer; user-select:none; }
+  table.data-table thead th:hover { color:var(--ink); }
+  table.data-table thead th[data-dir]::after { content:" ▲"; font-size:9px; }
+  table.data-table thead th[data-dir="desc"]::after { content:" ▼"; }
+</style>
+<script>
+// Any data table can be sorted by clicking a column heading. Numbers sort
+// numerically (percentages and counts included), text sorts in Greek
+// collation order. No dependencies, no state beyond the current view.
+document.querySelectorAll("table.data-table").forEach(function (table) {
+  var heads = table.querySelectorAll("thead th");
+  heads.forEach(function (th, index) {
+    th.setAttribute("title", "ταξινόμηση");
+    th.addEventListener("click", function () {
+      var body = table.querySelector("tbody");
+      if (!body) return;
+      var dir = th.dataset.dir === "asc" ? -1 : 1;
+      heads.forEach(function (o) { if (o !== th) delete o.dataset.dir; });
+      th.dataset.dir = dir === 1 ? "asc" : "desc";
+      var value = function (row) {
+        var cell = row.cells[index];
+        var text = cell ? (cell.innerText || "").trim() : "";
+        var num = parseFloat(text.replace(/\./g, "").replace(",", ".")
+                                 .replace(/[^0-9.\-]/g, ""));
+        return (text !== "" && !isNaN(num) && /[0-9]/.test(text))
+          ? num : text.toLowerCase();
+      };
+      Array.prototype.slice.call(body.rows).sort(function (a, b) {
+        var x = value(a), y = value(b);
+        if (typeof x === "number" && typeof y === "number") {
+          return (x - y) * dir;
+        }
+        return String(x).localeCompare(String(y), "el") * dir;
+      }).forEach(function (row) { body.appendChild(row); });
+    });
+  });
+});
+</script>
+</body>
+</html>

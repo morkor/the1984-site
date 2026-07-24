@@ -34,7 +34,7 @@
 <p class="page-sub">τελευταίες 6 ώρες · ώρα Ελλάδας · ≈ κατά προσέγγιση · δείγμα ένα άρθρο ανά μέσο ανά ώρα</p>
 <div class="filter-strip">
   <a href="/" class="filter-link ">ΟΛΑ</a>
-  <a href="/category/ellada" class="filter-link ">ΕΛΛΆΔΑ · 372</a><a href="/category/kosmos" class="filter-link ">ΚΌΣΜΟΣ · 249</a><a href="/category/politiki" class="filter-link ">ΠΟΛΙΤΙΚΉ · 179</a><a href="/category/athlitismos" class="filter-link ">ΑΘΛΗΤΙΣΜΌΣ · 151</a><a href="/category/oikonomia" class="filter-link ">ΟΙΚΟΝΟΜΊΑ · 134</a><a href="/category/koinonia" class="filter-link filter-link--active">ΚΟΙΝΩΝΊΑ · 112</a><a href="/category/lifestyle" class="filter-link ">LIFESTYLE · 60</a><a href="/category/ygeia" class="filter-link ">ΥΓΕΊΑ · 46</a><a href="/category/politismos" class="filter-link ">ΠΟΛΙΤΙΣΜΌΣ · 34</a><a href="/category/ekpaidefsi" class="filter-link ">ΠΑΙΔΕΊΑ · 28</a><a href="/category/media" class="filter-link ">ΜΜΕ · 13</a><a href="/category/epistimi" class="filter-link ">ΕΠΙΣΤΉΜΗ · 11</a>
+  <a href="/category/ellada" class="filter-link ">ΕΛΛΆΔΑ · 369</a><a href="/category/kosmos" class="filter-link ">ΚΌΣΜΟΣ · 247</a><a href="/category/politiki" class="filter-link ">ΠΟΛΙΤΙΚΉ · 170</a><a href="/category/athlitismos" class="filter-link ">ΑΘΛΗΤΙΣΜΌΣ · 150</a><a href="/category/oikonomia" class="filter-link ">ΟΙΚΟΝΟΜΊΑ · 131</a><a href="/category/koinonia" class="filter-link filter-link--active">ΚΟΙΝΩΝΊΑ · 109</a><a href="/category/lifestyle" class="filter-link ">LIFESTYLE · 60</a><a href="/category/ygeia" class="filter-link ">ΥΓΕΊΑ · 46</a><a href="/category/politismos" class="filter-link ">ΠΟΛΙΤΙΣΜΌΣ · 34</a><a href="/category/ekpaidefsi" class="filter-link ">ΠΑΙΔΕΊΑ · 27</a><a href="/category/media" class="filter-link ">ΜΜΕ · 12</a><a href="/category/epistimi" class="filter-link ">ΕΠΙΣΤΉΜΗ · 11</a>
 </div>
 
 
@@ -150,19 +150,47 @@
   
 </div>
 
-<div class="hour-head"><span class="hour-head__num">14:00</span><span class="section-note">δείγμα 3 από 3</span></div>
-<div>
-  
-  <div class="stream-row"><span class="stream-row__time">14:54</span><span class="stream-row__outlet">newsbeast</span><a href="https://www.newsbeast.gr/society/arthro/13255310/diakopes-sti-syro-mazi-me-ta-paidia-tis-ekane-i-diasostria-tou-ekav-simera-echei-genethlia-i-10chroni-kori-tis" target="_blank" rel="noopener noreferrer" class="headline">Διακοπές στη Σύρο με τα παιδιά της έκανε …</a><span class="rev-tag">ΑΝΑΘΕΩΡΗΘΗΚΕ</span></div>
-  
-  <div class="stream-row"><span class="stream-row__time">14:54</span><span class="stream-row__outlet">newsbomb</span><a href="https://www.newsbomb.gr/deltia-typou/story/1751988/paros-beach-hoops-i-novibet-kai-to-giant-heart-sto-plevro-diorganosis-me-simantiko-koinoniko-skopo" target="_blank" rel="noopener noreferrer" class="headline">Paros Beach Hoops: Η Novibet και το Giant …</a></div>
-  
-  <div class="stream-row"><span class="stream-row__time">14:53</span><span class="stream-row__outlet">thetoc</span><a href="https://www.thetoc.gr/koinwnia/article/tragodia-sta-limanakia-nekros-nearos-odigos-meta-apo-nteraparisma/" target="_blank" rel="noopener noreferrer" class="headline">Τραγωδία στα Λιμανάκια: Νεκρός 18χρονος οδηγός σε τροχαίο …</a></div>
-  
-</div>
-
 <p class="footnote">η κατηγορία προκύπτει από τη διαδρομή του συνδέσμου του κάθε μέσου</p>
 
 </main>
+<style>
+  table.data-table thead th { cursor:pointer; user-select:none; }
+  table.data-table thead th:hover { color:var(--ink); }
+  table.data-table thead th[data-dir]::after { content:" ▲"; font-size:9px; }
+  table.data-table thead th[data-dir="desc"]::after { content:" ▼"; }
+</style>
+<script>
+// Any data table can be sorted by clicking a column heading. Numbers sort
+// numerically (percentages and counts included), text sorts in Greek
+// collation order. No dependencies, no state beyond the current view.
+document.querySelectorAll("table.data-table").forEach(function (table) {
+  var heads = table.querySelectorAll("thead th");
+  heads.forEach(function (th, index) {
+    th.setAttribute("title", "ταξινόμηση");
+    th.addEventListener("click", function () {
+      var body = table.querySelector("tbody");
+      if (!body) return;
+      var dir = th.dataset.dir === "asc" ? -1 : 1;
+      heads.forEach(function (o) { if (o !== th) delete o.dataset.dir; });
+      th.dataset.dir = dir === 1 ? "asc" : "desc";
+      var value = function (row) {
+        var cell = row.cells[index];
+        var text = cell ? (cell.innerText || "").trim() : "";
+        var num = parseFloat(text.replace(/\./g, "").replace(",", ".")
+                                 .replace(/[^0-9.\-]/g, ""));
+        return (text !== "" && !isNaN(num) && /[0-9]/.test(text))
+          ? num : text.toLowerCase();
+      };
+      Array.prototype.slice.call(body.rows).sort(function (a, b) {
+        var x = value(a), y = value(b);
+        if (typeof x === "number" && typeof y === "number") {
+          return (x - y) * dir;
+        }
+        return String(x).localeCompare(String(y), "el") * dir;
+      }).forEach(function (row) { body.appendChild(row); });
+    });
+  });
+});
+</script>
 </body>
 </html>

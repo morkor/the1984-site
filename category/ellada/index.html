@@ -34,7 +34,7 @@
 <p class="page-sub">τελευταίες 6 ώρες · ώρα Ελλάδας · ≈ κατά προσέγγιση · δείγμα ένα άρθρο ανά μέσο ανά ώρα</p>
 <div class="filter-strip">
   <a href="/" class="filter-link ">ΟΛΑ</a>
-  <a href="/category/ellada" class="filter-link filter-link--active">ΕΛΛΆΔΑ · 372</a><a href="/category/kosmos" class="filter-link ">ΚΌΣΜΟΣ · 249</a><a href="/category/politiki" class="filter-link ">ΠΟΛΙΤΙΚΉ · 179</a><a href="/category/athlitismos" class="filter-link ">ΑΘΛΗΤΙΣΜΌΣ · 151</a><a href="/category/oikonomia" class="filter-link ">ΟΙΚΟΝΟΜΊΑ · 134</a><a href="/category/koinonia" class="filter-link ">ΚΟΙΝΩΝΊΑ · 112</a><a href="/category/lifestyle" class="filter-link ">LIFESTYLE · 60</a><a href="/category/ygeia" class="filter-link ">ΥΓΕΊΑ · 46</a><a href="/category/politismos" class="filter-link ">ΠΟΛΙΤΙΣΜΌΣ · 34</a><a href="/category/ekpaidefsi" class="filter-link ">ΠΑΙΔΕΊΑ · 28</a><a href="/category/media" class="filter-link ">ΜΜΕ · 13</a><a href="/category/epistimi" class="filter-link ">ΕΠΙΣΤΉΜΗ · 11</a>
+  <a href="/category/ellada" class="filter-link filter-link--active">ΕΛΛΆΔΑ · 369</a><a href="/category/kosmos" class="filter-link ">ΚΌΣΜΟΣ · 247</a><a href="/category/politiki" class="filter-link ">ΠΟΛΙΤΙΚΉ · 170</a><a href="/category/athlitismos" class="filter-link ">ΑΘΛΗΤΙΣΜΌΣ · 150</a><a href="/category/oikonomia" class="filter-link ">ΟΙΚΟΝΟΜΊΑ · 130</a><a href="/category/koinonia" class="filter-link ">ΚΟΙΝΩΝΊΑ · 109</a><a href="/category/lifestyle" class="filter-link ">LIFESTYLE · 60</a><a href="/category/ygeia" class="filter-link ">ΥΓΕΊΑ · 46</a><a href="/category/politismos" class="filter-link ">ΠΟΛΙΤΙΣΜΌΣ · 34</a><a href="/category/ekpaidefsi" class="filter-link ">ΠΑΙΔΕΊΑ · 27</a><a href="/category/media" class="filter-link ">ΜΜΕ · 12</a><a href="/category/epistimi" class="filter-link ">ΕΠΙΣΤΉΜΗ · 11</a>
 </div>
 
 
@@ -164,21 +164,54 @@
   
 </div>
 
-<div class="hour-head"><span class="hour-head__num">14:00</span><span class="section-note">δείγμα 4 από 4</span></div>
+<div class="hour-head"><span class="hour-head__num">14:00</span><span class="section-note">δείγμα 1 από 1</span></div>
 <div>
   
   <div class="stream-row"><span class="stream-row__time">14:59</span><span class="stream-row__outlet">zougla</span><a href="https://www.zougla.gr/greece/xanachtypise-o-ekatommyriouchos-influencer-sti-mykono/" target="_blank" rel="noopener noreferrer" class="headline">Ξαναχτύπησε ο εκατομμυριούχος influencer στη Μύκονο</a><span class="rev-tag">ΑΝΑΘΕΩΡΗΘΗΚΕ</span></div>
-  
-  <div class="stream-row"><span class="stream-row__time">14:58</span><span class="stream-row__outlet">star</span><a href="https://www.star.gr/eidiseis/ellada/724740/kefalogiannh-h-anarthsh-gia-th-marianna-b-bardinogiannh" target="_blank" rel="noopener noreferrer" class="headline">Κεφαλογιάννη: H Aνάρτηση Για Τη Μαριάννα Β. Βαρδινογιάννη</a></div>
-  
-  <div class="stream-row"><span class="stream-row__time">14:56</span><span class="stream-row__outlet">parapolitika</span><a href="https://www.parapolitika.gr/ellada/article/1767187/to-video-tis-ellinikis-astunomias-me-sumvoules-gia-tous-kindunous-sto-diadiktuo-min-pisteuete-oti-vlepete-sto-idernet/" target="_blank" rel="noopener noreferrer" class="headline">Το βίντεο της Ελληνικής Αστυνομίας με συμβουλές για …</a></div>
-  
-  <div class="stream-row"><span class="stream-row__time">14:55</span><span class="stream-row__outlet">iefimerida</span><a href="https://www.iefimerida.gr/ellada/parkarisma-afise-stoma-anoihto-ellada" target="_blank" rel="noopener noreferrer" class="headline">Το παρκάρισμα που άφησε με το στόμα ανοιχτό …</a></div>
   
 </div>
 
 <p class="footnote">η κατηγορία προκύπτει από τη διαδρομή του συνδέσμου του κάθε μέσου</p>
 
 </main>
+<style>
+  table.data-table thead th { cursor:pointer; user-select:none; }
+  table.data-table thead th:hover { color:var(--ink); }
+  table.data-table thead th[data-dir]::after { content:" ▲"; font-size:9px; }
+  table.data-table thead th[data-dir="desc"]::after { content:" ▼"; }
+</style>
+<script>
+// Any data table can be sorted by clicking a column heading. Numbers sort
+// numerically (percentages and counts included), text sorts in Greek
+// collation order. No dependencies, no state beyond the current view.
+document.querySelectorAll("table.data-table").forEach(function (table) {
+  var heads = table.querySelectorAll("thead th");
+  heads.forEach(function (th, index) {
+    th.setAttribute("title", "ταξινόμηση");
+    th.addEventListener("click", function () {
+      var body = table.querySelector("tbody");
+      if (!body) return;
+      var dir = th.dataset.dir === "asc" ? -1 : 1;
+      heads.forEach(function (o) { if (o !== th) delete o.dataset.dir; });
+      th.dataset.dir = dir === 1 ? "asc" : "desc";
+      var value = function (row) {
+        var cell = row.cells[index];
+        var text = cell ? (cell.innerText || "").trim() : "";
+        var num = parseFloat(text.replace(/\./g, "").replace(",", ".")
+                                 .replace(/[^0-9.\-]/g, ""));
+        return (text !== "" && !isNaN(num) && /[0-9]/.test(text))
+          ? num : text.toLowerCase();
+      };
+      Array.prototype.slice.call(body.rows).sort(function (a, b) {
+        var x = value(a), y = value(b);
+        if (typeof x === "number" && typeof y === "number") {
+          return (x - y) * dir;
+        }
+        return String(x).localeCompare(String(y), "el") * dir;
+      }).forEach(function (row) { body.appendChild(row); });
+    });
+  });
+});
+</script>
 </body>
 </html>

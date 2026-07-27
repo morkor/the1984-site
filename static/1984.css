@@ -132,11 +132,20 @@ a:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 .data-table .dim{color:var(--muted)}
 .data-table td a{color:var(--ink)}
 .data-table td a:hover{color:var(--link)}
-.score-bar{height:6px;background:var(--ink);margin-top:5px;margin-left:auto}
+.score-bar{height:6px;background:var(--ink);margin-top:5px;margin-left:auto;max-width:100%}
 .score-cell{width:110px}
 .rate{display:flex;align-items:center;gap:10px;justify-content:flex-end;font:13px var(--mono)}
-.rate-bar{width:120px;height:6px;background:var(--cell0)}
-.rate-bar__fill{height:6px;background:var(--red)}
+/* the track clips and the fill cannot exceed it: a bar is a share of
+   something, and a share over 100% is a bug in the number, not a
+   wider bar. Clipping here means no future one can widen the page. */
+.rate-bar{width:120px;height:6px;background:var(--cell0);overflow:hidden}
+.rate-bar__fill{height:6px;background:var(--red);max-width:100%}
+/* αρχείο ημερών */
+.day-story{font-size:14.5px}
+.day-story a{color:var(--ink)}
+.day-story__n{font:10px var(--mono);color:var(--faint);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;margin-left:10px}
+td.day-bar{width:180px;vertical-align:middle}
+.rate-bar--day{width:100%}
 .badges{display:flex;flex-wrap:wrap;gap:4px}
 .badge{font:10px var(--mono);border:1px solid var(--hair);padding:2px 6px;color:var(--muted);text-transform:uppercase;white-space:nowrap}
 /* silence (ΠΡΟΒΟΛΗ) */

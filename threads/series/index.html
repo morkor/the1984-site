@@ -36,11 +36,11 @@
 
 <h1 class="page-title">Νήματα</h1>
 <p class="page-sub">ιστορίες που διατρέχουν τις ημέρες — συστάδες τίτλων δεμένες σε νήματα με όρους-άγκυρες<br>
-<span style="font-size:12px">κλικ σε επικεφαλίδα στήλης για ταξινόμηση · η αναζήτηση καλύπτει όλα τα νήματα, και όσα δεν δείχνει ο δείκτης</span></p>
+<span style="font-size:12px">κλικ σε επικεφαλίδα στήλης για ταξινόμηση · η αναζήτηση καλύπτει όλες τις σελίδες</span></p>
 
 <div class="stat-strip" style="margin-bottom:32px">
-  <div><div class="stat__num">1991</div><div class="stat__label">ιστορίες πολλών ημερών</div></div>
-  <div><div class="stat__num">36</div><div class="stat__label">στήλες &amp; δελτία (ένα μέσο)</div></div>
+  <div><div class="stat__num">42</div><div class="stat__label">ιστορίες πολλών ημερών</div></div>
+  <div><div class="stat__num">0</div><div class="stat__label">στήλες &amp; δελτία (ένα μέσο)</div></div>
 </div>
 
 <div style="display:flex;gap:18px;align-items:center;margin-bottom:20px;flex-wrap:wrap">
@@ -48,22 +48,13 @@
     <a href="/threads" class="badge" >ΙΣΤΟΡΙΕΣ</a>
     <a href="/threads/series" class="badge" style="font-weight:700;text-decoration:underline">ΣΤΗΛΕΣ &amp; ΔΕΛΤΙΑ</a>
   </nav>
-  <nav class="badges" aria-label="ευρος">
-    <a href="/threads/series" class="badge" style="font-weight:700;text-decoration:underline">≥7 ΗΜΕΡΕΣ</a>
-    <a href="/threads/series/all" class="badge" >ΟΛΑ</a>
-  </nav>
   <input id="thread-search" type="search" placeholder="αναζήτηση σε όλα τα νήματα…"
          style="flex:1;min-width:220px;max-width:420px;padding:7px 12px;font:inherit;background:transparent;border:1px solid var(--rule,#888);color:inherit">
 </div>
 
 <p class="page-sub" id="thread-count" style="margin:-8px 0 14px;font-size:12px">
-  1–0 από 0 νήματα με δραστηριότητα σε 7+ ημέρες, από 36 συνολικά, κατά σειρά σημασίας
+  1–0 από 0, κατά σειρά σημασίας
 </p>
-
-<p class="footnote" style="margin:-6px 0 16px;color:var(--muted);font-size:12px">
-  Τα υπόλοιπα 36 δεν διαγράφονται και δεν αποσυνδέονται: ο συνδέτης τα φτιάχνει, το αρχείο τα κρατά, η σελίδα κάθε νήματος τα σερβίρει και η αναζήτηση τα φτάνει. Απλώς ο δείκτης δεν τα ονομάζει ιστορίες. <a href="/threads/series/all">δείτε τα όλα</a>
-</p>
-
 
 <table class="data-table" id="threads-table">
   <thead><tr>
@@ -97,7 +88,6 @@
   var pager = document.getElementById("thread-pager");
   var count = document.getElementById("thread-count");
   var kind = "series";
-  var minDays = 7;
   var browsing = tbody.innerHTML, browsingCount = count.textContent;
   var index = null, loading = null;
   var B36 = "0123456789abcdefghijklmnopqrstuvwxyz";
@@ -121,8 +111,7 @@
     return out;
   };
   var row = function (r) {
-    return '<tr' + (r.s ? ' class="below"' : '') +
-      '><td class="outlet"><a href="/thread/' + r.i + '">' + esc(r.t) +
+    return '<tr><td class="outlet"><a href="/thread/' + r.i + '">' + esc(r.t) +
       '</a></td><td class="mono dim num">' + (r.f || "—") +
       '</td><td class="mono dim num">' + (r.l || "—") +
       '</td><td class="mono num">' + r.d +
@@ -139,10 +128,8 @@
   var show = function (q) {
     var hits = index.filter(function (r) { return fold(r.t).indexOf(q) !== -1; });
     if (pager) pager.hidden = true;
-    var below = hits.filter(function (r) { return r.s; }).length;
     count.textContent = hits.length
-      ? hits.length + " από " + index.length + " ταιριάζουν — η αναζήτηση καλύπτει όλα τα νήματα"
-        + (below ? ", τα " + below + " με λιγότερες από " + minDays + " ημέρες σε πιο αχνό τόνο" : "")
+      ? hits.length + " από " + index.length + " ταιριάζουν σε όλες τις σελίδες"
       : "κανένα νήμα δεν ταιριάζει";
     tbody.innerHTML = hits.slice(0, 300).map(row).join("");
     if (hits.length > 300) {

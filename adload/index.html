@@ -35,15 +35,17 @@
 </header>
 <main class="page">
 
+<style>.cell-state{font:600 10px var(--mono);letter-spacing:.1em;color:var(--muted);white-space:nowrap}</style>
 <h1 class="page-title">Διαφημιστικό φορτίο</h1>
 <p class="page-sub">Πόσο από μια σελίδα είναι διαφήμιση και πόσο είδηση, μετρημένο σε εικονοστοιχεία μέσα σε πραγματικό φυλλομετρητή, με τη συγκατάθεση αποδεκτή, στις πρώτες δέκα οθόνες. Παράθυρο 14 ημερών.<br>
 <span style="font-size:12px">κλικ σε επικεφαλίδα στήλης για ταξινόμηση</span></p>
 
 <div class="stat-strip">
-  <div><div class="stat__num">33</div><div class="stat__label">μέσα μετρημένα από 38</div></div>
+  <div><div class="stat__num">30</div><div class="stat__label">μέσα μετρημένα από 38</div></div>
   <div><div class="stat__num">400</div><div class="stat__label">μετρήσεις</div></div>
-  <div><div class="stat__num">56</div><div class="stat__label">άκυρες — δεν επιβεβαιώθηκε συγκατάθεση</div></div>
-  <div><div class="stat__num">19</div><div class="stat__label">κελιά με λίγες μετρήσεις</div></div>
+  <div><div class="stat__num">3</div><div class="stat__label">μέσα δεν μετρήθηκαν καθόλου — τείχος συγκατάθεσης</div></div>
+  <div><div class="stat__num">1</div><div class="stat__label">κελί όπου δεν βρέθηκε το κείμενο</div></div>
+  <div><div class="stat__num">2</div><div class="stat__label">κελιά με λίγες μετρήσεις</div></div>
 </div>
 
 <div class="method" style="margin:0 0 34px">
@@ -51,6 +53,7 @@
   <p><strong>Η συγκατάθεση δεν είναι λεπτομέρεια.</strong> Με το παράθυρο συγκατάθεσης ανοιχτό δεν φορτώνεται <em>καμία</em> θέση — όχι λιγότερες. Μια μέτρηση πίσω από το τείχος δείχνει μηδέν διαφήμιση, οπότε αν μετρούσε ως μηδέν θα ανέβαζε στην κορυφή του «καθαρού» πίνακα ακριβώς όσα μέσα έχουν το πιο επίμονο παράθυρο. Όσες μετρήσεις δεν επιβεβαίωσαν συγκατάθεση καταγράφονται ως άκυρες και δεν μπαίνουν σε κανέναν διάμεσο.</p>
   <p><strong>Δέκα οθόνες, όχι όλη η σελίδα.</strong> Οι αρχικές σελίδες φτάνουν τα 50.000 εικονοστοιχεία· δέκα οθόνες κινητού καλύπτουν το ένα πέμπτο. Διαιρώντας με ολόκληρο το έγγραφο, οι πιο μακριές και πιο φορτωμένες σελίδες θα έβγαιναν οι πιο καθαρές. Ο παρονομαστής είναι η περιοχή που πράγματι διατρέχθηκε, ίδια για κάθε μέσο.</p>
   <p><strong>Τρεις κατηγορίες μένουν έξω και από τα δύο σύνολα:</strong> τα άγνωστα πλαίσια τρίτων, οι σύνδεσμοι που βγάζουν εκτός του ίδιου του μέσου, και όσα δεν κατατάχθηκαν. Όπως το ΑΓΝΩΣΤΟΣ στην ιδιοκτησία, το ακατάταχτο είναι εύρημα και όχι κενό: αν έμπαινε σε ένα από τα δύο σύνολα, ο δείκτης θα κινούνταν επειδή μια λίστα είναι ελλιπής και όχι επειδή άλλαξε κάτι σε ένα μέσο.</p>
+  <p><strong>Ένα μερίδιο 100% δεν υπάρχει.</strong> Όπου εμφανίζεται <span class="cell-state">ΔΕΝ ΒΡΕΘΗΚΕ ΣΗΜΑ</span>, η διαφήμιση μετρήθηκε αλλά το κείμενο της είδησης όχι, οπότε ο λόγος θα διαιρούσε με το μηδέν. Οι δύο πρώτες στήλες ισχύουν· το μερίδιο δεν υπολογίζεται. Και όπου εμφανίζεται <span class="cell-state">ΧΩΡΙΣ ΣΥΓΚΑΤΑΘΕΣΗ</span>, το μέσο μένει στον πίνακα αντί να εξαφανιστεί: ένα μέσο που δεν μπόρεσε να μετρηθεί δεν πρέπει να διαβάζεται σαν μέσο χωρίς διαφήμιση.</p>
   <p style="color:var(--muted)">Έκδοση μετρητή <strong>7</strong>. Κάθε διόρθωση στον ταξινομητή μετακίνησε όλους τους αριθμούς, οπότε μετρήσεις διαφορετικών εκδόσεων δεν συγκρίνονται και ο πίνακας δείχνει μία έκδοση τη φορά.</p>
 </div>
 
@@ -61,16 +64,6 @@
 <table class="data-table">
   <thead><tr><th>μεσο</th><th class="m-hide">πλατος</th><th class="num">εμφανισης</th><th class="num">προτεινομενο</th><th class="num">μεριδιο</th><th class="num m-hide">ειδηση/διαφημιση</th><th class="num m-hide">μετρησεις</th></tr></thead>
   <tbody>
-  
-    <tr>
-      <td><a href="/source/infowar">infowar</a></td>
-      <td class="m-hide">desktop</td>
-      <td class="num">28.80%</td>
-      <td class="num">0.00%</td>
-      <td class="num">100.00% <span style="color:var(--muted);font-size:11px">0.0–100.0</span></td>
-      <td class="num m-hide">0.00</td>
-      <td class="num m-hide">4</td>
-    </tr>
   
     <tr>
       <td><a href="/source/pentapostagma">pentapostagma</a></td>
@@ -582,26 +575,6 @@
       <td class="num m-hide">12 <span style="color:var(--muted)">+1 άκυρες</span></td>
     </tr>
   
-    <tr style="opacity:.62">
-      <td><a href="/source/kathimerini">Kathimerini</a> <span style="font:600 10px var(--mono);letter-spacing:.1em;color:var(--muted)">ΛΙΓΕΣ ΜΕΤΡΗΣΕΙΣ</span></td>
-      <td class="m-hide">desktop</td>
-      <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num m-hide">∞</td>
-      <td class="num m-hide">0 <span style="color:var(--muted)">+4 άκυρες</span></td>
-    </tr>
-  
-    <tr style="opacity:.62">
-      <td><a href="/source/kathimerini">Kathimerini</a> <span style="font:600 10px var(--mono);letter-spacing:.1em;color:var(--muted)">ΛΙΓΕΣ ΜΕΤΡΗΣΕΙΣ</span></td>
-      <td class="m-hide">mobile</td>
-      <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num m-hide">∞</td>
-      <td class="num m-hide">0 <span style="color:var(--muted)">+4 άκυρες</span></td>
-    </tr>
-  
     <tr>
       <td><a href="/source/prin">Prin</a></td>
       <td class="m-hide">desktop</td>
@@ -642,36 +615,6 @@
       <td class="num m-hide">4</td>
     </tr>
   
-    <tr style="opacity:.62">
-      <td><a href="/source/dikaiologitika">dikaiologitika</a> <span style="font:600 10px var(--mono);letter-spacing:.1em;color:var(--muted)">ΛΙΓΕΣ ΜΕΤΡΗΣΕΙΣ</span></td>
-      <td class="m-hide">mobile</td>
-      <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num m-hide">∞</td>
-      <td class="num m-hide">0 <span style="color:var(--muted)">+4 άκυρες</span></td>
-    </tr>
-  
-    <tr style="opacity:.62">
-      <td><a href="/source/enikos">enikos</a> <span style="font:600 10px var(--mono);letter-spacing:.1em;color:var(--muted)">ΛΙΓΕΣ ΜΕΤΡΗΣΕΙΣ</span></td>
-      <td class="m-hide">desktop</td>
-      <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num m-hide">∞</td>
-      <td class="num m-hide">0 <span style="color:var(--muted)">+4 άκυρες</span></td>
-    </tr>
-  
-    <tr style="opacity:.62">
-      <td><a href="/source/enikos">enikos</a> <span style="font:600 10px var(--mono);letter-spacing:.1em;color:var(--muted)">ΛΙΓΕΣ ΜΕΤΡΗΣΕΙΣ</span></td>
-      <td class="m-hide">mobile</td>
-      <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num m-hide">∞</td>
-      <td class="num m-hide">0 <span style="color:var(--muted)">+4 άκυρες</span></td>
-    </tr>
-  
     <tr>
       <td><a href="/source/ethnos">ethnos</a></td>
       <td class="m-hide">desktop</td>
@@ -693,32 +636,92 @@
     </tr>
   
     <tr style="opacity:.62">
-      <td><a href="/source/koutipandoras">koutipandoras</a> <span style="font:600 10px var(--mono);letter-spacing:.1em;color:var(--muted)">ΛΙΓΕΣ ΜΕΤΡΗΣΕΙΣ</span></td>
-      <td class="m-hide">mobile</td>
-      <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num m-hide">∞</td>
-      <td class="num m-hide">0 <span style="color:var(--muted)">+4 άκυρες</span></td>
+      <td><a href="/source/infowar">infowar</a></td>
+      <td class="m-hide">desktop</td>
+      <td class="num">28.80%</td>
+      <td class="num">0.00%</td>
+      <td class="num"><span class="cell-state">ΔΕΝ ΒΡΕΘΗΚΕ ΣΗΜΑ</span></td>
+      <td class="num m-hide">—</td>
+      <td class="num m-hide">4</td>
     </tr>
   
     <tr style="opacity:.62">
-      <td><a href="/source/newsbeast">newsbeast</a> <span style="font:600 10px var(--mono);letter-spacing:.1em;color:var(--muted)">ΛΙΓΕΣ ΜΕΤΡΗΣΕΙΣ</span></td>
+      <td><a href="/source/kathimerini">Kathimerini</a></td>
       <td class="m-hide">desktop</td>
       <td class="num">—</td>
       <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num m-hide">∞</td>
+      <td class="num"><span class="cell-state">ΧΩΡΙΣ ΣΥΓΚΑΤΑΘΕΣΗ</span></td>
+      <td class="num m-hide">—</td>
       <td class="num m-hide">0 <span style="color:var(--muted)">+4 άκυρες</span></td>
     </tr>
   
     <tr style="opacity:.62">
-      <td><a href="/source/newsbeast">newsbeast</a> <span style="font:600 10px var(--mono);letter-spacing:.1em;color:var(--muted)">ΛΙΓΕΣ ΜΕΤΡΗΣΕΙΣ</span></td>
+      <td><a href="/source/kathimerini">Kathimerini</a></td>
       <td class="m-hide">mobile</td>
       <td class="num">—</td>
       <td class="num">—</td>
+      <td class="num"><span class="cell-state">ΧΩΡΙΣ ΣΥΓΚΑΤΑΘΕΣΗ</span></td>
+      <td class="num m-hide">—</td>
+      <td class="num m-hide">0 <span style="color:var(--muted)">+4 άκυρες</span></td>
+    </tr>
+  
+    <tr style="opacity:.62">
+      <td><a href="/source/dikaiologitika">dikaiologitika</a></td>
+      <td class="m-hide">mobile</td>
       <td class="num">—</td>
-      <td class="num m-hide">∞</td>
+      <td class="num">—</td>
+      <td class="num"><span class="cell-state">ΧΩΡΙΣ ΣΥΓΚΑΤΑΘΕΣΗ</span></td>
+      <td class="num m-hide">—</td>
+      <td class="num m-hide">0 <span style="color:var(--muted)">+4 άκυρες</span></td>
+    </tr>
+  
+    <tr style="opacity:.62">
+      <td><a href="/source/enikos">enikos</a></td>
+      <td class="m-hide">desktop</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="cell-state">ΧΩΡΙΣ ΣΥΓΚΑΤΑΘΕΣΗ</span></td>
+      <td class="num m-hide">—</td>
+      <td class="num m-hide">0 <span style="color:var(--muted)">+4 άκυρες</span></td>
+    </tr>
+  
+    <tr style="opacity:.62">
+      <td><a href="/source/enikos">enikos</a></td>
+      <td class="m-hide">mobile</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="cell-state">ΧΩΡΙΣ ΣΥΓΚΑΤΑΘΕΣΗ</span></td>
+      <td class="num m-hide">—</td>
+      <td class="num m-hide">0 <span style="color:var(--muted)">+4 άκυρες</span></td>
+    </tr>
+  
+    <tr style="opacity:.62">
+      <td><a href="/source/koutipandoras">koutipandoras</a></td>
+      <td class="m-hide">mobile</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="cell-state">ΧΩΡΙΣ ΣΥΓΚΑΤΑΘΕΣΗ</span></td>
+      <td class="num m-hide">—</td>
+      <td class="num m-hide">0 <span style="color:var(--muted)">+4 άκυρες</span></td>
+    </tr>
+  
+    <tr style="opacity:.62">
+      <td><a href="/source/newsbeast">newsbeast</a></td>
+      <td class="m-hide">desktop</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="cell-state">ΧΩΡΙΣ ΣΥΓΚΑΤΑΘΕΣΗ</span></td>
+      <td class="num m-hide">—</td>
+      <td class="num m-hide">0 <span style="color:var(--muted)">+4 άκυρες</span></td>
+    </tr>
+  
+    <tr style="opacity:.62">
+      <td><a href="/source/newsbeast">newsbeast</a></td>
+      <td class="m-hide">mobile</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="cell-state">ΧΩΡΙΣ ΣΥΓΚΑΤΑΘΕΣΗ</span></td>
+      <td class="num m-hide">—</td>
       <td class="num m-hide">0 <span style="color:var(--muted)">+4 άκυρες</span></td>
     </tr>
   
@@ -896,7 +899,7 @@
     </tr>
   
     <tr style="opacity:.62">
-      <td><a href="/source/pitsirikos">Pitsirikos</a> <span style="font:600 10px var(--mono);letter-spacing:.1em;color:var(--muted)">ΛΙΓΕΣ ΜΕΤΡΗΣΕΙΣ</span></td>
+      <td><a href="/source/pitsirikos">Pitsirikos</a> <span class="cell-state">ΛΙΓΕΣ ΜΕΤΡΗΣΕΙΣ</span></td>
       <td class="m-hide">mobile</td>
       <td class="num">8.10%</td>
       <td class="num">0.00%</td>
@@ -1116,7 +1119,7 @@
     </tr>
   
     <tr style="opacity:.62">
-      <td><a href="/source/skai">skai</a> <span style="font:600 10px var(--mono);letter-spacing:.1em;color:var(--muted)">ΛΙΓΕΣ ΜΕΤΡΗΣΕΙΣ</span></td>
+      <td><a href="/source/skai">skai</a> <span class="cell-state">ΛΙΓΕΣ ΜΕΤΡΗΣΕΙΣ</span></td>
       <td class="m-hide">desktop</td>
       <td class="num">2.56%</td>
       <td class="num">0.00%</td>
@@ -1255,26 +1258,6 @@
       <td class="num m-hide">5</td>
     </tr>
   
-    <tr style="opacity:.62">
-      <td><a href="/source/kathimerini">Kathimerini</a> <span style="font:600 10px var(--mono);letter-spacing:.1em;color:var(--muted)">ΛΙΓΕΣ ΜΕΤΡΗΣΕΙΣ</span></td>
-      <td class="m-hide">desktop</td>
-      <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num m-hide">∞</td>
-      <td class="num m-hide">0 <span style="color:var(--muted)">+2 άκυρες</span></td>
-    </tr>
-  
-    <tr style="opacity:.62">
-      <td><a href="/source/kathimerini">Kathimerini</a> <span style="font:600 10px var(--mono);letter-spacing:.1em;color:var(--muted)">ΛΙΓΕΣ ΜΕΤΡΗΣΕΙΣ</span></td>
-      <td class="m-hide">mobile</td>
-      <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num m-hide">∞</td>
-      <td class="num m-hide">0 <span style="color:var(--muted)">+2 άκυρες</span></td>
-    </tr>
-  
     <tr>
       <td><a href="/source/prin">Prin</a></td>
       <td class="m-hide">desktop</td>
@@ -1313,66 +1296,6 @@
       <td class="num">0.00%</td>
       <td class="num m-hide">∞</td>
       <td class="num m-hide">2</td>
-    </tr>
-  
-    <tr style="opacity:.62">
-      <td><a href="/source/dikaiologitika">dikaiologitika</a> <span style="font:600 10px var(--mono);letter-spacing:.1em;color:var(--muted)">ΛΙΓΕΣ ΜΕΤΡΗΣΕΙΣ</span></td>
-      <td class="m-hide">mobile</td>
-      <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num m-hide">∞</td>
-      <td class="num m-hide">0 <span style="color:var(--muted)">+2 άκυρες</span></td>
-    </tr>
-  
-    <tr style="opacity:.62">
-      <td><a href="/source/enikos">enikos</a> <span style="font:600 10px var(--mono);letter-spacing:.1em;color:var(--muted)">ΛΙΓΕΣ ΜΕΤΡΗΣΕΙΣ</span></td>
-      <td class="m-hide">desktop</td>
-      <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num m-hide">∞</td>
-      <td class="num m-hide">0 <span style="color:var(--muted)">+2 άκυρες</span></td>
-    </tr>
-  
-    <tr style="opacity:.62">
-      <td><a href="/source/enikos">enikos</a> <span style="font:600 10px var(--mono);letter-spacing:.1em;color:var(--muted)">ΛΙΓΕΣ ΜΕΤΡΗΣΕΙΣ</span></td>
-      <td class="m-hide">mobile</td>
-      <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num m-hide">∞</td>
-      <td class="num m-hide">0 <span style="color:var(--muted)">+2 άκυρες</span></td>
-    </tr>
-  
-    <tr style="opacity:.62">
-      <td><a href="/source/koutipandoras">koutipandoras</a> <span style="font:600 10px var(--mono);letter-spacing:.1em;color:var(--muted)">ΛΙΓΕΣ ΜΕΤΡΗΣΕΙΣ</span></td>
-      <td class="m-hide">mobile</td>
-      <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num m-hide">∞</td>
-      <td class="num m-hide">0 <span style="color:var(--muted)">+2 άκυρες</span></td>
-    </tr>
-  
-    <tr style="opacity:.62">
-      <td><a href="/source/newsbeast">newsbeast</a> <span style="font:600 10px var(--mono);letter-spacing:.1em;color:var(--muted)">ΛΙΓΕΣ ΜΕΤΡΗΣΕΙΣ</span></td>
-      <td class="m-hide">desktop</td>
-      <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num m-hide">∞</td>
-      <td class="num m-hide">0 <span style="color:var(--muted)">+2 άκυρες</span></td>
-    </tr>
-  
-    <tr style="opacity:.62">
-      <td><a href="/source/newsbeast">newsbeast</a> <span style="font:600 10px var(--mono);letter-spacing:.1em;color:var(--muted)">ΛΙΓΕΣ ΜΕΤΡΗΣΕΙΣ</span></td>
-      <td class="m-hide">mobile</td>
-      <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num">—</td>
-      <td class="num m-hide">∞</td>
-      <td class="num m-hide">0 <span style="color:var(--muted)">+2 άκυρες</span></td>
     </tr>
   
     <tr>
@@ -1386,12 +1309,92 @@
     </tr>
   
     <tr style="opacity:.62">
-      <td><a href="/source/skai">skai</a> <span style="font:600 10px var(--mono);letter-spacing:.1em;color:var(--muted)">ΛΙΓΕΣ ΜΕΤΡΗΣΕΙΣ</span></td>
+      <td><a href="/source/kathimerini">Kathimerini</a></td>
+      <td class="m-hide">desktop</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="cell-state">ΧΩΡΙΣ ΣΥΓΚΑΤΑΘΕΣΗ</span></td>
+      <td class="num m-hide">—</td>
+      <td class="num m-hide">0 <span style="color:var(--muted)">+2 άκυρες</span></td>
+    </tr>
+  
+    <tr style="opacity:.62">
+      <td><a href="/source/kathimerini">Kathimerini</a></td>
       <td class="m-hide">mobile</td>
       <td class="num">—</td>
       <td class="num">—</td>
+      <td class="num"><span class="cell-state">ΧΩΡΙΣ ΣΥΓΚΑΤΑΘΕΣΗ</span></td>
+      <td class="num m-hide">—</td>
+      <td class="num m-hide">0 <span style="color:var(--muted)">+2 άκυρες</span></td>
+    </tr>
+  
+    <tr style="opacity:.62">
+      <td><a href="/source/dikaiologitika">dikaiologitika</a></td>
+      <td class="m-hide">mobile</td>
       <td class="num">—</td>
-      <td class="num m-hide">∞</td>
+      <td class="num">—</td>
+      <td class="num"><span class="cell-state">ΧΩΡΙΣ ΣΥΓΚΑΤΑΘΕΣΗ</span></td>
+      <td class="num m-hide">—</td>
+      <td class="num m-hide">0 <span style="color:var(--muted)">+2 άκυρες</span></td>
+    </tr>
+  
+    <tr style="opacity:.62">
+      <td><a href="/source/enikos">enikos</a></td>
+      <td class="m-hide">desktop</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="cell-state">ΧΩΡΙΣ ΣΥΓΚΑΤΑΘΕΣΗ</span></td>
+      <td class="num m-hide">—</td>
+      <td class="num m-hide">0 <span style="color:var(--muted)">+2 άκυρες</span></td>
+    </tr>
+  
+    <tr style="opacity:.62">
+      <td><a href="/source/enikos">enikos</a></td>
+      <td class="m-hide">mobile</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="cell-state">ΧΩΡΙΣ ΣΥΓΚΑΤΑΘΕΣΗ</span></td>
+      <td class="num m-hide">—</td>
+      <td class="num m-hide">0 <span style="color:var(--muted)">+2 άκυρες</span></td>
+    </tr>
+  
+    <tr style="opacity:.62">
+      <td><a href="/source/koutipandoras">koutipandoras</a></td>
+      <td class="m-hide">mobile</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="cell-state">ΧΩΡΙΣ ΣΥΓΚΑΤΑΘΕΣΗ</span></td>
+      <td class="num m-hide">—</td>
+      <td class="num m-hide">0 <span style="color:var(--muted)">+2 άκυρες</span></td>
+    </tr>
+  
+    <tr style="opacity:.62">
+      <td><a href="/source/newsbeast">newsbeast</a></td>
+      <td class="m-hide">desktop</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="cell-state">ΧΩΡΙΣ ΣΥΓΚΑΤΑΘΕΣΗ</span></td>
+      <td class="num m-hide">—</td>
+      <td class="num m-hide">0 <span style="color:var(--muted)">+2 άκυρες</span></td>
+    </tr>
+  
+    <tr style="opacity:.62">
+      <td><a href="/source/newsbeast">newsbeast</a></td>
+      <td class="m-hide">mobile</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="cell-state">ΧΩΡΙΣ ΣΥΓΚΑΤΑΘΕΣΗ</span></td>
+      <td class="num m-hide">—</td>
+      <td class="num m-hide">0 <span style="color:var(--muted)">+2 άκυρες</span></td>
+    </tr>
+  
+    <tr style="opacity:.62">
+      <td><a href="/source/skai">skai</a></td>
+      <td class="m-hide">mobile</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num"><span class="cell-state">ΧΩΡΙΣ ΣΥΓΚΑΤΑΘΕΣΗ</span></td>
+      <td class="num m-hide">—</td>
       <td class="num m-hide">0 <span style="color:var(--muted)">+2 άκυρες</span></td>
     </tr>
   

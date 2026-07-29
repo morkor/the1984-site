@@ -40,9 +40,9 @@
 <span style="font-size:12px">κλικ σε επικεφαλίδα στήλης για ταξινόμηση</span></p>
 
 <div class="stat-strip">
-  <div><div class="stat__num">0</div><div class="stat__label">μέσα μετρημένα από 38</div></div>
-  <div><div class="stat__num">0</div><div class="stat__label">μετρήσεις</div></div>
-  <div><div class="stat__num">0</div><div class="stat__label">άκυρες — δεν επιβεβαιώθηκε συγκατάθεση</div></div>
+  <div><div class="stat__num">3</div><div class="stat__label">μέσα μετρημένα από 38</div></div>
+  <div><div class="stat__num">71</div><div class="stat__label">μετρήσεις</div></div>
+  <div><div class="stat__num">1</div><div class="stat__label">άκυρη — δεν επιβεβαιώθηκε συγκατάθεση</div></div>
   <div><div class="stat__num">0</div><div class="stat__label">κελιά με λίγες μετρήσεις</div></div>
 </div>
 
@@ -51,19 +51,153 @@
   <p><strong>Η συγκατάθεση δεν είναι λεπτομέρεια.</strong> Με το παράθυρο συγκατάθεσης ανοιχτό δεν φορτώνεται <em>καμία</em> θέση — όχι λιγότερες. Μια μέτρηση πίσω από το τείχος δείχνει μηδέν διαφήμιση, οπότε αν μετρούσε ως μηδέν θα ανέβαζε στην κορυφή του «καθαρού» πίνακα ακριβώς όσα μέσα έχουν το πιο επίμονο παράθυρο. Όσες μετρήσεις δεν επιβεβαίωσαν συγκατάθεση καταγράφονται ως άκυρες και δεν μπαίνουν σε κανέναν διάμεσο.</p>
   <p><strong>Δέκα οθόνες, όχι όλη η σελίδα.</strong> Οι αρχικές σελίδες φτάνουν τα 50.000 εικονοστοιχεία· δέκα οθόνες κινητού καλύπτουν το ένα πέμπτο. Διαιρώντας με ολόκληρο το έγγραφο, οι πιο μακριές και πιο φορτωμένες σελίδες θα έβγαιναν οι πιο καθαρές. Ο παρονομαστής είναι η περιοχή που πράγματι διατρέχθηκε, ίδια για κάθε μέσο.</p>
   <p><strong>Τρεις κατηγορίες μένουν έξω και από τα δύο σύνολα:</strong> τα άγνωστα πλαίσια τρίτων, οι σύνδεσμοι που βγάζουν εκτός του ίδιου του μέσου, και όσα δεν κατατάχθηκαν. Όπως το ΑΓΝΩΣΤΟΣ στην ιδιοκτησία, το ακατάταχτο είναι εύρημα και όχι κενό: αν έμπαινε σε ένα από τα δύο σύνολα, ο δείκτης θα κινούνταν επειδή μια λίστα είναι ελλιπής και όχι επειδή άλλαξε κάτι σε ένα μέσο.</p>
-  
+  <p style="color:var(--muted)">Έκδοση μετρητή <strong>7</strong>. Κάθε διόρθωση στον ταξινομητή μετακίνησε όλους τους αριθμούς, οπότε μετρήσεις διαφορετικών εκδόσεων δεν συγκρίνονται και ο πίνακας δείχνει μία έκδοση τη φορά.</p>
 </div>
 
 <h2 style="font:600 13px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 8px">Άρθρα</h2>
 <p class="page-sub" style="margin-bottom:16px">Εκεί ζουν οι μονάδες μέσα στο κείμενο και τα μπλοκ προτάσεων. Σήμα είναι το κείμενο του άρθρου.</p>
 
-<p class="page-sub">Καμία μέτρηση σε άρθρα ακόμη.</p>
+
+<table class="data-table">
+  <thead><tr><th>μεσο</th><th class="m-hide">πλατος</th><th class="num">εμφανισης</th><th class="num">προτεινομενο</th><th class="num">μεριδιο</th><th class="num m-hide">ειδηση/διαφημιση</th><th class="num m-hide">μετρησεις</th></tr></thead>
+  <tbody>
+  
+    <tr>
+      <td><a href="/source/newsbomb">newsbomb</a></td>
+      <td class="m-hide">desktop</td>
+      <td class="num">7.20%</td>
+      <td class="num">43.05%</td>
+      <td class="num">80.71% <span style="color:var(--muted);font-size:11px">76.9–93.3</span></td>
+      <td class="num m-hide">0.24</td>
+      <td class="num m-hide">9</td>
+    </tr>
+  
+    <tr>
+      <td><a href="/source/newsbomb">newsbomb</a></td>
+      <td class="m-hide">mobile</td>
+      <td class="num">17.62%</td>
+      <td class="num">23.45%</td>
+      <td class="num">58.73% <span style="color:var(--muted);font-size:11px">45.5–95.4</span></td>
+      <td class="num m-hide">0.56</td>
+      <td class="num m-hide">9</td>
+    </tr>
+  
+    <tr>
+      <td><a href="/source/protothema">protothema</a></td>
+      <td class="m-hide">mobile</td>
+      <td class="num">8.02%</td>
+      <td class="num">0.00%</td>
+      <td class="num">18.72% <span style="color:var(--muted);font-size:11px">11.7–26.9</span></td>
+      <td class="num m-hide">4.34</td>
+      <td class="num m-hide">9</td>
+    </tr>
+  
+    <tr>
+      <td><a href="/source/protothema">protothema</a></td>
+      <td class="m-hide">desktop</td>
+      <td class="num">4.22%</td>
+      <td class="num">0.00%</td>
+      <td class="num">17.44% <span style="color:var(--muted);font-size:11px">9.7–19.9</span></td>
+      <td class="num m-hide">4.95</td>
+      <td class="num m-hide">9</td>
+    </tr>
+  
+    <tr>
+      <td><a href="/source/efsyn">EfSyn</a></td>
+      <td class="m-hide">desktop</td>
+      <td class="num">0.00%</td>
+      <td class="num">0.00%</td>
+      <td class="num">0.00% <span style="color:var(--muted);font-size:11px">0.0–26.7</span></td>
+      <td class="num m-hide">∞</td>
+      <td class="num m-hide">9</td>
+    </tr>
+  
+    <tr>
+      <td><a href="/source/efsyn">EfSyn</a></td>
+      <td class="m-hide">mobile</td>
+      <td class="num">0.00%</td>
+      <td class="num">0.00%</td>
+      <td class="num">0.00%</td>
+      <td class="num m-hide">∞</td>
+      <td class="num m-hide">8 <span style="color:var(--muted)">+1 άκυρες</span></td>
+    </tr>
+  
+  </tbody>
+</table>
+
 
 
 <h2 style="font:600 13px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:34px 0 8px">Αρχικές σελίδες</h2>
 <p class="page-sub" style="margin-bottom:16px">Σήμα είναι η επιφάνεια των καρτών, όχι το κείμενο: η αρχική είναι τοίχος από συνδέσμους.</p>
 
-<p class="page-sub">Καμία μέτρηση σε αρχικές σελίδες ακόμη.</p>
+
+<table class="data-table">
+  <thead><tr><th>μεσο</th><th class="m-hide">πλατος</th><th class="num">εμφανισης</th><th class="num">προτεινομενο</th><th class="num">μεριδιο</th><th class="num m-hide">ειδηση/διαφημιση</th><th class="num m-hide">μετρησεις</th></tr></thead>
+  <tbody>
+  
+    <tr>
+      <td><a href="/source/protothema">protothema</a></td>
+      <td class="m-hide">mobile</td>
+      <td class="num">5.38%</td>
+      <td class="num">0.00%</td>
+      <td class="num">9.54% <span style="color:var(--muted);font-size:11px">9.5–14.3</span></td>
+      <td class="num m-hide">9.49</td>
+      <td class="num m-hide">3</td>
+    </tr>
+  
+    <tr>
+      <td><a href="/source/newsbomb">newsbomb</a></td>
+      <td class="m-hide">desktop</td>
+      <td class="num">1.70%</td>
+      <td class="num">0.00%</td>
+      <td class="num">8.97% <span style="color:var(--muted);font-size:11px">9.0–9.1</span></td>
+      <td class="num m-hide">10.15</td>
+      <td class="num m-hide">3</td>
+    </tr>
+  
+    <tr>
+      <td><a href="/source/protothema">protothema</a></td>
+      <td class="m-hide">desktop</td>
+      <td class="num">2.62%</td>
+      <td class="num">0.00%</td>
+      <td class="num">6.05% <span style="color:var(--muted);font-size:11px">4.8–6.1</span></td>
+      <td class="num m-hide">15.47</td>
+      <td class="num m-hide">3</td>
+    </tr>
+  
+    <tr>
+      <td><a href="/source/efsyn">EfSyn</a></td>
+      <td class="m-hide">mobile</td>
+      <td class="num">2.19%</td>
+      <td class="num">0.00%</td>
+      <td class="num">3.07% <span style="color:var(--muted);font-size:11px">3.1–3.1</span></td>
+      <td class="num m-hide">31.62</td>
+      <td class="num m-hide">3</td>
+    </tr>
+  
+    <tr>
+      <td><a href="/source/efsyn">EfSyn</a></td>
+      <td class="m-hide">desktop</td>
+      <td class="num">0.00%</td>
+      <td class="num">0.00%</td>
+      <td class="num">0.00% <span style="color:var(--muted);font-size:11px">0.0–1.0</span></td>
+      <td class="num m-hide">∞</td>
+      <td class="num m-hide">3</td>
+    </tr>
+  
+    <tr>
+      <td><a href="/source/newsbomb">newsbomb</a></td>
+      <td class="m-hide">mobile</td>
+      <td class="num">0.00%</td>
+      <td class="num">0.00%</td>
+      <td class="num">0.00%</td>
+      <td class="num m-hide">∞</td>
+      <td class="num m-hide">3</td>
+    </tr>
+  
+  </tbody>
+</table>
+
 
 
 </main>

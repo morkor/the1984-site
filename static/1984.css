@@ -21,6 +21,16 @@ a:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 .search{display:flex;align-items:center;gap:8px;border-bottom:1px solid #C9CAC5;padding:5px 2px;margin:8px 0}
 .search input{border:0;background:transparent;font:12px var(--mono);color:var(--ink);outline:none;width:170px}
 .search__icon{color:var(--faint);font-size:15px}
+/* Το περίπτερο — one slot per masthead, newest first, staleness shown */
+.kiosk{columns:2;column-gap:56px;margin-top:6px}
+.kiosk-row{display:grid;grid-template-columns:118px 1fr auto;gap:10px;align-items:baseline;padding:7px 0;border-bottom:1px solid var(--ghost);break-inside:avoid}
+.kiosk-src{font:600 10.5px var(--mono);letter-spacing:.06em;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.kiosk-src:hover{color:var(--ink);text-decoration:none}
+.kiosk-head{font:400 13.5px/1.35 var(--serif);color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.kiosk-head:hover{text-decoration:underline}
+.kiosk-head--none{color:var(--faint);font-style:italic}
+.kiosk-age{font:10px var(--mono);color:var(--muted);white-space:nowrap}
+.kiosk-row--stale .kiosk-head,.kiosk-row--stale .kiosk-src{color:var(--faint)}
 /* page scaffold */
 .page{max-width:1200px;margin:0 auto;padding:48px 40px 100px}
 .page-title{font:400 44px/1.15 var(--serif);margin:0 0 10px}
@@ -165,6 +175,7 @@ td.day-bar{width:180px;vertical-align:middle}
   .m-hide{display:none}
   .site-header__inner,.page{padding-left:16px;padding-right:16px}
   .brand__morse{display:none}
+  .kiosk{columns:1}
   .nav-toggle{display:inline-flex;align-items:center;justify-content:center;background:none;border:1px solid var(--hair);padding:9px 11px;color:var(--ink);cursor:pointer}
   .site-nav{order:3;flex-basis:100%;display:none;flex-direction:column;gap:0;border-top:1px solid var(--hair)}
   .site-nav.open{display:flex}

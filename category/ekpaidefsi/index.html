@@ -21,7 +21,7 @@
       <span class="brand__tag">παρατηρητήριο</span>
       <span class="brand__morse" aria-hidden="true">·–·· –·– ·––·</span>
     </div>
-    <nav class="site-nav" aria-label="Ενότητες">
+    <nav class="site-nav" id="sitenav" aria-label="Ενότητες">
       <a href="/" class="nav-link nav-link--active">ΡΟΗ</a>
       <a href="/threads" class="nav-link ">ΝΗΜΑΤΑ</a>
       <a href="/memoryhole" class="nav-link ">Η ΤΡΥΠΑ ΤΗΣ ΜΝΗΜΗΣ</a>
@@ -36,6 +36,9 @@
       <a href="/burial" class="nav-link ">ΘΑΨΙΜΟ</a>
       <a href="/recycling" class="nav-link ">ΑΝΑΚΥΚΛΩΣΗ</a>
     </nav>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="sitenav" aria-label="Μενού ενοτήτων">
+      <svg width="18" height="14" viewBox="0 0 18 14" aria-hidden="true"><path d="M0 1h18M0 7h18M0 13h18" stroke="currentColor" stroke-width="2"/></svg>
+    </button>
   </div>
 </header>
 <main class="page">
@@ -44,7 +47,7 @@
 <p class="page-sub">τελευταίες 6 ώρες · ώρα Ελλάδας · ≈ κατά προσέγγιση · δείγμα ένα άρθρο ανά μέσο ανά ώρα</p>
 <div class="filter-strip">
   <a href="/" class="filter-link ">ΟΛΑ</a>
-  <a href="/category/ellada" class="filter-link ">ΕΛΛΆΔΑ · 420</a><a href="/category/kosmos" class="filter-link ">ΚΌΣΜΟΣ · 215</a><a href="/category/politiki" class="filter-link ">ΠΟΛΙΤΙΚΉ · 206</a><a href="/category/koinonia" class="filter-link ">ΚΟΙΝΩΝΊΑ · 157</a><a href="/category/oikonomia" class="filter-link ">ΟΙΚΟΝΟΜΊΑ · 144</a><a href="/category/athlitismos" class="filter-link ">ΑΘΛΗΤΙΣΜΌΣ · 128</a><a href="/category/politismos" class="filter-link ">ΠΟΛΙΤΙΣΜΌΣ · 65</a><a href="/category/lifestyle" class="filter-link ">LIFESTYLE · 62</a><a href="/category/ygeia" class="filter-link ">ΥΓΕΊΑ · 45</a><a href="/category/epistimi" class="filter-link ">ΕΠΙΣΤΉΜΗ · 38</a><a href="/category/ekpaidefsi" class="filter-link filter-link--active">ΠΑΙΔΕΊΑ · 30</a><a href="/category/media" class="filter-link ">ΜΜΕ · 27</a>
+  <a href="/category/ellada" class="filter-link ">ΕΛΛΆΔΑ · 431</a><a href="/category/kosmos" class="filter-link ">ΚΌΣΜΟΣ · 225</a><a href="/category/politiki" class="filter-link ">ΠΟΛΙΤΙΚΉ · 209</a><a href="/category/koinonia" class="filter-link ">ΚΟΙΝΩΝΊΑ · 164</a><a href="/category/oikonomia" class="filter-link ">ΟΙΚΟΝΟΜΊΑ · 141</a><a href="/category/athlitismos" class="filter-link ">ΑΘΛΗΤΙΣΜΌΣ · 131</a><a href="/category/politismos" class="filter-link ">ΠΟΛΙΤΙΣΜΌΣ · 68</a><a href="/category/lifestyle" class="filter-link ">LIFESTYLE · 63</a><a href="/category/ygeia" class="filter-link ">ΥΓΕΊΑ · 45</a><a href="/category/epistimi" class="filter-link ">ΕΠΙΣΤΉΜΗ · 38</a><a href="/category/ekpaidefsi" class="filter-link filter-link--active">ΠΑΙΔΕΊΑ · 30</a><a href="/category/media" class="filter-link ">ΜΜΕ · 27</a>
 </div>
 
 
@@ -125,6 +128,20 @@
   table.data-table thead th[data-dir="desc"]::after { content:" ▼"; }
 </style>
 <script>
+// Below 820px the section parade collapses behind one button: thirteen
+// instruments in a swipe-strip meant most were invisible with no hint
+// they existed. The panel lists every section; the wordmark itself is
+// the way home, so no link needs to stay out of it.
+(function () {
+  var toggle = document.querySelector(".nav-toggle");
+  var nav = document.getElementById("sitenav");
+  if (!toggle || !nav) return;
+  toggle.addEventListener("click", function () {
+    var open = nav.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+})();
+
 // Any data table can be sorted by clicking a column heading. Numbers sort
 // numerically (percentages and counts included), text sorts in Greek
 // collation order. No dependencies, no state beyond the current view.

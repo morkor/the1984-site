@@ -21,7 +21,7 @@
       <span class="brand__tag">παρατηρητήριο</span>
       <span class="brand__morse" aria-hidden="true">·–·· –·– ·––·</span>
     </div>
-    <nav class="site-nav" aria-label="Ενότητες">
+    <nav class="site-nav" id="sitenav" aria-label="Ενότητες">
       <a href="/" class="nav-link ">ΡΟΗ</a>
       <a href="/threads" class="nav-link ">ΝΗΜΑΤΑ</a>
       <a href="/memoryhole" class="nav-link ">Η ΤΡΥΠΑ ΤΗΣ ΜΝΗΜΗΣ</a>
@@ -36,6 +36,9 @@
       <a href="/burial" class="nav-link ">ΘΑΨΙΜΟ</a>
       <a href="/recycling" class="nav-link ">ΑΝΑΚΥΚΛΩΣΗ</a>
     </nav>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="sitenav" aria-label="Μενού ενοτήτων">
+      <svg width="18" height="14" viewBox="0 0 18 14" aria-hidden="true"><path d="M0 1h18M0 7h18M0 13h18" stroke="currentColor" stroke-width="2"/></svg>
+    </button>
   </div>
 </header>
 <main class="page">
@@ -48,8 +51,8 @@
   <br><span style="font-size:12px">κανάλια: rss, frontpage</span>
 </p>
 <div class="stat-strip">
-  <div><div class="stat__num">222</div><div class="stat__label">άρθρα 24 ώρες</div></div>
-  <div><div class="stat__num">2307</div><div class="stat__label">άρθρα 30 ημέρες</div></div>
+  <div><div class="stat__num">227</div><div class="stat__label">άρθρα 24 ώρες</div></div>
+  <div><div class="stat__num">2313</div><div class="stat__label">άρθρα 30 ημέρες</div></div>
   <div><div class="stat__num stat__num--red">12.7%</div><div class="stat__label">αναθεωρήσεις · διάμεσος 8.0%</div></div>
   <div><div class="stat__num">0</div><div class="stat__label">άρθρα στο πρωτοσέλιδο</div></div>
 </div>
@@ -60,11 +63,11 @@
   <div class="hours-24 m-hide"><div class="hour-num">17</div><div class="hour-num">18</div><div class="hour-num">19</div><div class="hour-num">20</div><div class="hour-num">21</div><div class="hour-num">22</div><div class="hour-num">23</div><div class="hour-num">00</div><div class="hour-num">01</div><div class="hour-num">02</div><div class="hour-num">03</div><div class="hour-num">04</div><div class="hour-num">05</div><div class="hour-num">06</div><div class="hour-num">07</div><div class="hour-num">08</div><div class="hour-num">09</div><div class="hour-num">10</div><div class="hour-num">11</div><div class="hour-num">12</div><div class="hour-num">13</div><div class="hour-num">14</div><div class="hour-num">15</div><div class="hour-num">16</div></div>
   <div class="heat-scale__pad-r"></div>
 </div>
-<div class="heat-row"><div class="heat-row__label">newsit</div><div class="hours-24"><span class="heat-cell heat-2" title="17:00 — 11 άρθρα"></span><span class="heat-cell heat-3" title="18:00 — 15 άρθρα"></span><span class="heat-cell heat-3" title="19:00 — 13 άρθρα"></span><span class="heat-cell heat-3" title="20:00 — 14 άρθρα"></span><span class="heat-cell heat-2" title="21:00 — 9 άρθρα"></span><span class="heat-cell heat-2" title="22:00 — 8 άρθρα"></span><span class="heat-cell heat-2" title="23:00 — 12 άρθρα"></span><span class="heat-cell heat-2" title="00:00 — 7 άρθρα"></span><span class="heat-cell heat-0" title="01:00 — 0 άρθρα"></span><span class="heat-cell heat-0" title="02:00 — 0 άρθρα"></span><span class="heat-cell heat-0" title="03:00 — 0 άρθρα"></span><span class="heat-cell heat-0" title="04:00 — 0 άρθρα"></span><span class="heat-cell heat-1" title="05:00 — 5 άρθρα"></span><span class="heat-cell heat-2" title="06:00 — 8 άρθρα"></span><span class="heat-cell heat-2" title="07:00 — 8 άρθρα"></span><span class="heat-cell heat-2" title="08:00 — 10 άρθρα"></span><span class="heat-cell heat-3" title="09:00 — 15 άρθρα"></span><span class="heat-cell heat-1" title="10:00 — 6 άρθρα"></span><span class="heat-cell heat-3" title="11:00 — 18 άρθρα"></span><span class="heat-cell heat-2" title="12:00 — 12 άρθρα"></span><span class="heat-cell heat-3" title="13:00 — 15 άρθρα"></span><span class="heat-cell heat-2" title="14:00 — 12 άρθρα"></span><span class="heat-cell heat-3" title="15:00 — 16 άρθρα"></span><span class="heat-cell heat-2" title="16:00 — 8 άρθρα"></span></div><div class="heat-row__total">222</div></div>
+<div class="heat-row"><div class="heat-row__label">newsit</div><div class="hours-24"><span class="heat-cell heat-2" title="17:00 — 11 άρθρα"></span><span class="heat-cell heat-3" title="18:00 — 15 άρθρα"></span><span class="heat-cell heat-3" title="19:00 — 13 άρθρα"></span><span class="heat-cell heat-3" title="20:00 — 14 άρθρα"></span><span class="heat-cell heat-2" title="21:00 — 9 άρθρα"></span><span class="heat-cell heat-2" title="22:00 — 8 άρθρα"></span><span class="heat-cell heat-2" title="23:00 — 12 άρθρα"></span><span class="heat-cell heat-2" title="00:00 — 7 άρθρα"></span><span class="heat-cell heat-0" title="01:00 — 0 άρθρα"></span><span class="heat-cell heat-0" title="02:00 — 0 άρθρα"></span><span class="heat-cell heat-0" title="03:00 — 0 άρθρα"></span><span class="heat-cell heat-0" title="04:00 — 0 άρθρα"></span><span class="heat-cell heat-1" title="05:00 — 5 άρθρα"></span><span class="heat-cell heat-2" title="06:00 — 8 άρθρα"></span><span class="heat-cell heat-2" title="07:00 — 8 άρθρα"></span><span class="heat-cell heat-2" title="08:00 — 10 άρθρα"></span><span class="heat-cell heat-3" title="09:00 — 15 άρθρα"></span><span class="heat-cell heat-1" title="10:00 — 6 άρθρα"></span><span class="heat-cell heat-3" title="11:00 — 18 άρθρα"></span><span class="heat-cell heat-2" title="12:00 — 12 άρθρα"></span><span class="heat-cell heat-3" title="13:00 — 16 άρθρα"></span><span class="heat-cell heat-2" title="14:00 — 12 άρθρα"></span><span class="heat-cell heat-3" title="15:00 — 16 άρθρα"></span><span class="heat-cell heat-2" title="16:00 — 12 άρθρα"></span></div><div class="heat-row__total">227</div></div>
 
 
 <div class="section-head section-head--spaced" style="margin-bottom:6px"><h2 class="section-title">Θεματολογία</h2><span class="section-note m-hide">30 ημέρες</span></div>
-<div class="chips"><span class="chip">ΕΛΛΆΔΑ · 602</span><span class="chip">ΑΘΛΗΤΙΣΜΌΣ · 453</span><span class="chip">ΚΌΣΜΟΣ · 275</span><span class="chip">ΟΙΚΟΝΟΜΊΑ · 257</span><span class="chip">LIFESTYLE · 253</span><span class="chip">ΠΟΛΙΤΙΚΉ · 191</span></div>
+<div class="chips"><span class="chip">ΕΛΛΆΔΑ · 606</span><span class="chip">ΑΘΛΗΤΙΣΜΌΣ · 453</span><span class="chip">ΚΌΣΜΟΣ · 275</span><span class="chip">ΟΙΚΟΝΟΜΊΑ · 257</span><span class="chip">LIFESTYLE · 253</span><span class="chip">ΠΟΛΙΤΙΚΉ · 191</span></div>
 
 
 
@@ -127,6 +130,16 @@
 
 <div class="section-head section-head--spaced"><h2 class="section-title">Τελευταίες δημοσιεύσεις</h2><span class="section-note m-hide">ώρα Ελλάδας · ≈ κατά προσέγγιση</span></div>
 
+<div class="stream-row"><span class="stream-row__time">31/07 16:46</span><span class="stream-row__outlet">Ελλάδα</span><a href="https://www.newsit.gr/ellada/meteo-doryforikes-eikones-apo-tis-foties-se-voiotia-kai-argolida-o-kapnos-eftase-mexri-kai-ti-lakonia/4741276/" target="_blank" rel="noopener noreferrer" class="headline">Meteo: Δορυφορικές εικόνες από τις φωτιές σε Βοιωτία …</a></div>
+
+<div class="stream-row"><span class="stream-row__time">31/07 16:35</span><span class="stream-row__outlet">Υγεία</span><a href="https://www.newsit.gr/ygeia/kapnos-apo-tis-pyrkagies-oi-odigies-ton-pneymonologon-gia-tin-prostasia-tis-ygeias/4741261/" target="_blank" rel="noopener noreferrer" class="headline">Καπνός από τις πυρκαγιές: Οι οδηγίες των πνευμονολόγων …</a></div>
+
+<div class="stream-row"><span class="stream-row__time">31/07 16:28</span><span class="stream-row__outlet">Ελλάδα</span><a href="https://www.newsit.gr/ellada/fotia-sto-rethymno-periorismenes-oi-zimies-sto-foinikodasos-tou-preveli/4741265/" target="_blank" rel="noopener noreferrer" class="headline">Φωτιά στο Ρέθυμνο: Περιορισμένες οι ζημιές στο Φοινικόδασος …</a></div>
+
+<div class="stream-row"><span class="stream-row__time">31/07 16:27</span><span class="stream-row__outlet">Ελλάδα</span><a href="https://www.newsit.gr/ellada/fotia-stin-perifereiaki-aigaleo-minyma-tou-112-ekkenonontai-ano-dasos-kai-afaia-xaidariou/4741255/" target="_blank" rel="noopener noreferrer" class="headline">Φωτιά στην Περιφερειακή Αιγάλεω: Μήνυμα του 112 - …</a></div>
+
+<div class="stream-row"><span class="stream-row__time">31/07 16:27</span><span class="stream-row__outlet">Ελλάδα</span><a href="https://www.newsit.gr/ellada/fotia-sto-poikilo-oros-minyma-tou-112-ekkenonontai-ano-dasos-kai-afaia-xaidariou/4741255/" target="_blank" rel="noopener noreferrer" class="headline">Φωτιά στην Περιφερειακή Αιγάλεω: Μήνυμα του 112 - …</a></div>
+
 <div class="stream-row"><span class="stream-row__time">31/07 16:20</span><span class="stream-row__outlet">Ελλάδα</span><a href="https://www.newsit.gr/ellada/fotia-stin-perifereiaki-aigaleo-sto-ypsos-tou-skaramagka-minyma-tou-112-gia-etoimotita/4741234/" target="_blank" rel="noopener noreferrer" class="headline">Φωτιά στην περιφερειακή Αιγάλεω στο ύψος του Σκαραμαγκά …</a></div>
 
 <div class="stream-row"><span class="stream-row__time">31/07 16:17</span><span class="stream-row__outlet">Ελλάδα</span><a href="https://www.newsit.gr/ellada/fotia-sto-kompoti-artas-minyma-tou-112-gia-ekkenosi-sikothikan-3-aeroskafi/4741229/" target="_blank" rel="noopener noreferrer" class="headline">Φωτιά στο Κομπότι Άρτας: Μήνυμα του 112 για …</a></div>
@@ -155,7 +168,7 @@
 
 <div class="stream-row"><span class="stream-row__time">31/07 15:24</span><span class="stream-row__outlet">Αθλητισμός</span><a href="https://www.newsit.gr/athlitika/franko-mparezi-sygklonistikes-stigmes-stin-proponisi-tis-milan-paiktes-kai-proponites-sximatisan-ena-kyklo-gyro-apo-ti-fanela-tou/4741187/" target="_blank" rel="noopener noreferrer" class="headline">Φράνκο Μπαρέζι: Συγκλονιστικές στιγμές στην προπόνηση της Μίλαν, …</a></div>
 
-<div class="stream-row"><span class="stream-row__time">31/07 15:19</span><span class="stream-row__outlet">Ελλάδα</span><a href="https://www.newsit.gr/ellada/fotia-ston-agio-vasileio-voiotias-me-dramatikes-ekkenoseis-kai-apegklovismous-pyrina-metopa-kai-se-argolida-axaia-live-oi-ekselikseis/4741174/" target="_blank" rel="noopener noreferrer" class="headline">Φωτιά στον Άγιο Βασίλειο Βοιωτίας, με δραματικές εκκενώσεις …</a></div>
+<div class="stream-row"><span class="stream-row__time">31/07 15:19</span><span class="stream-row__outlet">Ελλάδα</span><a href="https://www.newsit.gr/ellada/fotia-ston-agio-vasileio-voiotias-me-dramatikes-ekkenoseis-kai-apegklovismous-pyrina-metopa-kai-se-argolida-axaia-live-oi-ekselikseis/4741174/" target="_blank" rel="noopener noreferrer" class="headline">Φωτιά στον Άγιο Βασίλειο Βοιωτίας, με δραματικές εκκενώσεις …</a><span class="rev-tag">ΑΝΑΘΕΩΡΗΘΗΚΕ</span></div>
 
 <div class="stream-row"><span class="stream-row__time">31/07 15:17</span><span class="stream-row__outlet">Πολιτική</span><a href="https://www.newsit.gr/politikh/pasok-kata-aleksi-tsipra-rebranding-agkalia-me-ta-symferonta-nea-sygkrousi-gia-ti-xrimatodotisi-tis-elas/4741189/" target="_blank" rel="noopener noreferrer" class="headline">ΠΑΣΟΚ κατά Αλέξη Τσίπρα: «Rebranding αγκαλιά με τα …</a></div>
 
@@ -167,16 +180,6 @@
 
 <div class="stream-row"><span class="stream-row__time">31/07 15:10</span><span class="stream-row__outlet">Αθλητισμός</span><a href="https://www.newsit.gr/athlitika/o-kalampria-tou-panathinaikou-apoxairetise-ton-mparezi-itan-timi-kai-pronomio-na-se-gnoriso-kalo-taksidi-spoudaia-arxige/4741168/" target="_blank" rel="noopener noreferrer" class="headline">Ο Καλάμπρια του Παναθηναϊκού αποχαιρέτησε τον Μπαρέζι: «Ήταν …</a></div>
 
-<div class="stream-row"><span class="stream-row__time">31/07 15:08</span><span class="stream-row__outlet">Οικονομία</span><a href="https://www.newsit.gr/oikonomia/finance/tte-sto-4-74-anevikan-ta-epitokia-ton-daneion-ton-iounio-sto-0-35-emeinan-oi-katatheseis/4741167/" target="_blank" rel="noopener noreferrer" class="headline">ΤτΕ: Στο 4,74% ανέβηκαν τα επιτόκια των δανείων …</a></div>
-
-<div class="stream-row"><span class="stream-row__time">31/07 15:05</span><span class="stream-row__outlet">Πολιτική</span><a href="https://www.newsit.gr/politikh/epithesi-tis-elas-ston-mitsotaki-gia-ta-filodorimata-parousiazei-os-paroxi-ti-diorthosi-enos-dikou-tou-lathous/4741165/" target="_blank" rel="noopener noreferrer" class="headline">Επίθεση της ΕΛΑΣ στον Μητσοτάκη για τα φιλοδωρήματα: …</a></div>
-
-<div class="stream-row"><span class="stream-row__time">31/07 14:58</span><span class="stream-row__outlet">Ελλάδα</span><a href="https://www.newsit.gr/ellada/arxaio-nayagio-stin-andro-apo-ton-5o-i-tis-arxes-tou-4ou-aiona-entyposiakes-oi-eikones/4741149/" target="_blank" rel="noopener noreferrer" class="headline">Αρχαίο ναυάγιο στην Άνδρο, από τον 5ο ή …</a></div>
-
-<div class="stream-row"><span class="stream-row__time">31/07 14:55</span><span class="stream-row__outlet">Αθλητισμός</span><a href="https://www.newsit.gr/athlitika/paok-epestrepse-stis-proponiseis-o-soretire-paramenoun-ektos-meite-kai-ntespontof/4741158/" target="_blank" rel="noopener noreferrer" class="headline">ΠΑΟΚ: Επέστρεψε στις προπονήσεις ο Σορετίρε, παραμένουν εκτός …</a></div>
-
-<div class="stream-row"><span class="stream-row__time">31/07 14:51</span><span class="stream-row__outlet">Lifestyle</span><a href="https://www.newsit.gr/lifestyle/athina-oikonomakou-mprouno-tserela-i-proti-fotografia-apo-ton-thriskeytiko-gamo-tous/4741145/" target="_blank" rel="noopener noreferrer" class="headline">Αθηνά Οικονομάκου - Μπρούνο Τσερέλα: Η πρώτη φωτογραφία …</a></div>
-
 
 
 </main>
@@ -187,6 +190,20 @@
   table.data-table thead th[data-dir="desc"]::after { content:" ▼"; }
 </style>
 <script>
+// Below 820px the section parade collapses behind one button: thirteen
+// instruments in a swipe-strip meant most were invisible with no hint
+// they existed. The panel lists every section; the wordmark itself is
+// the way home, so no link needs to stay out of it.
+(function () {
+  var toggle = document.querySelector(".nav-toggle");
+  var nav = document.getElementById("sitenav");
+  if (!toggle || !nav) return;
+  toggle.addEventListener("click", function () {
+    var open = nav.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+})();
+
 // Any data table can be sorted by clicking a column heading. Numbers sort
 // numerically (percentages and counts included), text sorts in Greek
 // collation order. No dependencies, no state beyond the current view.

@@ -33,3 +33,5 @@
 .rv-stale td{color:var(--faint)}
 .rv-warn{color:var(--red)}
 .rv-grid tfoot td{border-top:1px solid var(--ink);font-weight:600}
+.rv-note{font:11px/1.6 var(--mono);color:var(--muted);border-left:2px solid var(--hair);padding:2px 0 2px 12px;margin:0 0 26px;max-width:78ch}
+.rv-note strong{color:var(--ink)}

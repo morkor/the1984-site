@@ -62,3 +62,12 @@
 .rv-body summary:hover{color:var(--ink)}
 .rv-body__text{font:15px/1.7 var(--serif);max-width:74ch;margin-top:10px;white-space:normal}
 .rv-body__text p{margin:0 0 14px}
+/* lexeme inspector */
+.rv-note--warn{border-left-color:var(--red)}
+.rv-note code,.rv-lex code{font:11px var(--mono);background:var(--ghost);padding:1px 5px;margin-right:5px}
+.rv-lex{border:1px solid var(--hair);border-left:2px solid var(--ink);padding:12px 14px;margin:0 0 26px;max-width:78ch}
+.rv-lex p{margin:0 0 7px;font:11px var(--mono)}
+.rv-lex__label{color:var(--faint);font-size:10px !important;letter-spacing:.1em;text-transform:uppercase}
+.rv-lex__mode{display:inline-block;width:74px;color:var(--muted)}
+.rv-lex__warn{color:var(--red);font-weight:600}
+.rv-lex__hint{color:var(--faint);margin:8px 0 0 !important}
